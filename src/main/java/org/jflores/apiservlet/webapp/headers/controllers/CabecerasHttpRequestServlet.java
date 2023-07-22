@@ -1,4 +1,4 @@
-package org.jflores.apiservlet.webapp.headers;
+package org.jflores.apiservlet.webapp.headers.controllers;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
