@@ -1,4 +1,4 @@
-package org.jflores.apiservlet.webapp.headers.models;
+package org.jflores.apiservlet.webapp.session.models;
 
 public class Producto {
 

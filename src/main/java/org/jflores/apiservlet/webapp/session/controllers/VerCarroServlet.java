@@ -1,4 +1,4 @@
-package org.jflores.apiservlet.webapp.headers.controllers;
+package org.jflores.apiservlet.webapp.session.controllers;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,13 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/redirigir")
-public class RedirigirServlet extends HttpServlet {
-
+@WebServlet("/ver-carro")
+public class VerCarroServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setHeader("Location",req.getContextPath()+"/productos.html");
-//        resp.setStatus(HttpServletResponse.SC_FOUND);
-        resp.sendRedirect(req.getContextPath()+"/productos.html");
+        getServletContext().getRequestDispatcher("/carro.jsp").forward(req,resp);
     }
 }
