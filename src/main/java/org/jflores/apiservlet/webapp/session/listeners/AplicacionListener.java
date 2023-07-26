@@ -30,6 +30,7 @@ public class AplicacionListener implements HttpSessionListener, ServletContextLi
     public void requestInitialized(ServletRequestEvent sre) {
         servletContext.log("inicializando el Request!");
         sre.getServletRequest().setAttribute("mensaje", "guardando algun valor para el request");
+        sre.getServletRequest().setAttribute("tittle", "Catalogo Servlet");
     }
 
     @Override

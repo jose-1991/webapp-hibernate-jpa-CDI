@@ -11,6 +11,7 @@ import java.io.IOException;
 public class VerCarroServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("tittle",req.getAttribute("tittle") + ": Carro de compras");
         getServletContext().getRequestDispatcher("/carro.jsp").forward(req,resp);
     }
 }
