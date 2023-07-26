@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e03b0ff7-877b-4f4c-adbc-04bd382244af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/AgregarCarroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/AgregarCarroServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/ProductoRepositoryJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/ProductoRepositoryJdbcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceJdbcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/listar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/listar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -39,13 +44,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/JoSe/Downloads/webapp-session"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/JoSe/Downloads/webapp-session&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.jflores.apiservlet.webapp.session.models" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="tomcat" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>

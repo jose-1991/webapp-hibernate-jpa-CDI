@@ -1,5 +1,6 @@
 package org.jflores.apiservlet.webapp.session.services;
 
+import org.jflores.apiservlet.webapp.session.models.Categoria;
 import org.jflores.apiservlet.webapp.session.models.Producto;
 
 import java.util.Arrays;
@@ -18,5 +19,25 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public Optional<Producto> porId(long id) {
         return listar().stream().filter(p-> p.getId() == id).findAny();
+    }
+
+    @Override
+    public void guardar(Producto producto) {
+
+    }
+
+    @Override
+    public void eliminar(long id) {
+
+    }
+
+    @Override
+    public List<Categoria> listarCategoria() {
+        return null;
+    }
+
+    @Override
+    public Optional<Categoria> porIdCategoria(long id) {
+        return Optional.empty();
     }
 }

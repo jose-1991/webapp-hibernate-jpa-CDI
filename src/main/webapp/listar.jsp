@@ -15,6 +15,7 @@ List<Producto> productos = ((List<Producto>)request.getAttribute("productos"));
 <h1>Listado de Productos</h1>
 <%if(username.isPresent()){%>
 <div>Hola <%=username.get()%>, Bienvenido!</div>
+<p><a href="<%=request.getContextPath()%>/productos/form">crear [+]</a></p>
 <%}%>
 <table>
     <tr>
@@ -24,16 +25,21 @@ List<Producto> productos = ((List<Producto>)request.getAttribute("productos"));
         <%if(username.isPresent()){%>
         <th>precio</th>
         <th>agregar</th>
+        <th>editar</th>
+        <th>eliminar</th>
         <%}%>
     </tr>
     <%for(Producto p: productos){%>
     <tr>
         <td><%=p.getId()%></td>
         <td><%=p.getNombre()%></td>
-        <td><%=p.getTipo()%></td>
+        <td><%=p.getCategoria().getNombre()%></td>
         <%if(username.isPresent()){%>
         <td><%=p.getPrecio()%></td>
-        <td><a href="<%=request.getContextPath()%>/carro/agregar?id=<%=p.getId()%>">agregar al carro</a></td>
+        <td><a href="<%=request.getContextPath()%>/carro/agregar?id=<%=p.getId()%>">Agregar al carro</a></td>
+        <td><a href="<%=request.getContextPath()%>/productos/form?id=<%=p.getId()%>">Editar</td>
+        <td><a onClick="return confirm('Esta seguro que desea eliminar el producto <%=p.getNombre()%>?');"
+        href="<%=request.getContextPath()%>/productos/eliminar?id=<%=p.getId()%>">Eliminar</td>
         <%}%>
     </tr>
     <%}%>
