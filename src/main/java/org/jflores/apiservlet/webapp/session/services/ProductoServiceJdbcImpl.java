@@ -32,7 +32,7 @@ public class ProductoServiceJdbcImpl implements ProductoService{
     @Override
     public Optional<Producto> porId(long id) {
         try {
-            return Optional.ofNullable((Producto)repositoryJdbc.porId(id));
+            return Optional.ofNullable(repositoryJdbc.porId(id));
         } catch (SQLException throwables) {
             throw new ServiceJdbcException(throwables.getMessage(),throwables.getCause());
         }

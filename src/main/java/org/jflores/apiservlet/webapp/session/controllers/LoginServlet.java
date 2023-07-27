@@ -1,20 +1,21 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
+import org.jflores.apiservlet.webapp.session.models.Usuario;
 import org.jflores.apiservlet.webapp.session.services.LoginService;
 import org.jflores.apiservlet.webapp.session.services.LoginServiceSessionImpl;
+import org.jflores.apiservlet.webapp.session.services.UsuarioService;
+import org.jflores.apiservlet.webapp.session.services.UsuarioServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.Optional;
 
 @WebServlet({"/login", "/login.html"})
 public class LoginServlet extends HttpServlet {
-
-    final static String USERNAME = "admin";
-    final static String PASSWORD = "12345";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,12 +50,12 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        if (USERNAME.equals(username) && PASSWORD.equals(password)) {
-
+        UsuarioService service = new UsuarioServiceImpl((Connection) req.getAttribute("conn"));
+        Optional<Usuario> usuarioOptional = service.login(username, password);
+        if (usuarioOptional.isPresent()) {
 
             HttpSession session = req.getSession();
             session.setAttribute("username", username);
-
 
             resp.sendRedirect(req.getContextPath()+"/login.html");
         } else {

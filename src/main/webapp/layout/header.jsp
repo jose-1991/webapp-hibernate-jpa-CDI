@@ -30,10 +30,15 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-            <a class="dropdown-item"
-            href="${pageContext.request.contextPath}/${not empty sessionScope.username? "logout": "login"}">
-            ${not empty sessionScope.username? "Logout": "Login"}
-            </a>
+                <a class="dropdown-item"
+                    href="${pageContext.request.contextPath}/${not empty sessionScope.username? "logout": "login"}">
+                    ${not empty sessionScope.username? "Logout": "Login"}
+                </a>
+            </li>
+            <li>
+                 <a class="dropdown-item"
+                    href="${pageContext.request.contextPath}/registro/form">Registrarse
+                 </a>
             </li>
           </ul>
         </li>
