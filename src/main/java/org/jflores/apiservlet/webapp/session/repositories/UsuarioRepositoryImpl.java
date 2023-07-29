@@ -1,7 +1,5 @@
 package org.jflores.apiservlet.webapp.session.repositories;
 
-import org.jflores.apiservlet.webapp.session.models.Producto;
-import org.jflores.apiservlet.webapp.session.models.TipoUsuario;
 import org.jflores.apiservlet.webapp.session.models.Usuario;
 
 import java.sql.*;
@@ -34,7 +32,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
         usuario.setUsername(resultSet.getString("username"));
         usuario.setPassword(resultSet.getString("password"));
         usuario.setEmail(resultSet.getString("email"));
-        usuario.setTipo(TipoUsuario.valueOf(resultSet.getString("tipo")));
+        usuario.setTipo(resultSet.getString("tipo"));
         return usuario;
     }
 
@@ -59,13 +57,13 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
         if (usuario.getId() > 0){
             sql = "UPDATE usuarios set username=?, password=?, email=?, tipo=? WHERE id=?";
         }else {
-            sql = "INSERT INTO usuarios VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO usuarios (username, password, email, tipo)VALUES(?,?,?,?)";
         }
         try (PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1,usuario.getUsername());
             statement.setString(2,usuario.getPassword());
             statement.setString(3, usuario.getEmail());
-            statement.setString(4,usuario.getTipo().toString());
+            statement.setString(4, usuario.getTipo());
             if (usuario.getId() > 0) {
                 statement.setLong(5, usuario.getId());
             }

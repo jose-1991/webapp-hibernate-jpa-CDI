@@ -5,7 +5,11 @@ public class Usuario {
     private String username;
     private String password;
     private String email;
-    private TipoUsuario tipo;
+    private String tipo;
+
+    public Usuario() {
+        this.tipo = "CLIENTE";
+    }
 
     public long getId() {
         return id;
@@ -39,11 +43,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public TipoUsuario getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoUsuario tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 }

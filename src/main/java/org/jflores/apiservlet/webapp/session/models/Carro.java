@@ -1,10 +1,15 @@
 package org.jflores.apiservlet.webapp.session.models;
 
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Carro {
+@SessionScoped
+@Named
+public class Carro implements Serializable {
     List<ItemCarro> items;
 
     public Carro() {

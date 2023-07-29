@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @WebServlet("/registro/form")
@@ -41,7 +43,40 @@ public class RegistroServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Connection connection = (Connection) req.getAttribute("conn");
         UsuarioService service = new UsuarioServiceImpl(connection);
+        Map<String, String> erroresRegistro = new HashMap<>();
+        long id;
+        try {
+            id = Long.parseLong(req.getParameter("id"));
+        }catch (NumberFormatException e){
+            id = 0;
+        }
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        String email = req.getParameter("email");
 
+        if (username == null || username.trim().isEmpty()){
+            erroresRegistro.put("username", "El username es requerido!");
+        }
+        if (password == null || password.trim().isEmpty()){
+            erroresRegistro.put("password", "El password es requerido!");
+        }
+        if (email == null || email.trim().isEmpty()){
+            erroresRegistro.put("email", "El email es requerido!");
+        }
+        Usuario usuario = new Usuario();
+        usuario.setId(id);
+        usuario.setUsername(username);
+        usuario.setPassword(password);
+        usuario.setEmail(email);
+
+        if (erroresRegistro.isEmpty()){
+            service.guardar(usuario);
+            resp.sendRedirect(req.getContextPath());
+        }else {
+            req.setAttribute("erroresRegistro", erroresRegistro);
+            req.setAttribute("usuario", usuario);
+            getServletContext().getRequestDispatcher("/registro.jsp").forward(req,resp);
+        }
 
     }
 

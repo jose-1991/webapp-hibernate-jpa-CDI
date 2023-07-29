@@ -7,6 +7,8 @@ import org.jflores.apiservlet.webapp.session.services.ProductoService;
 import org.jflores.apiservlet.webapp.session.services.ProductoServiceImpl;
 import org.jflores.apiservlet.webapp.session.services.ProductoServiceJdbcImpl;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,12 @@ import java.sql.Connection;
 import java.util.Optional;
 
 @WebServlet("/carro/agregar")
+@Named
 public class AgregarCarroServlet extends HttpServlet {
+
+    @Inject
+    private Carro carro;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long id = Long.parseLong(req.getParameter("id"));
@@ -27,8 +34,8 @@ public class AgregarCarroServlet extends HttpServlet {
         Optional<Producto> producto = service.porId(id);
         if (producto.isPresent()) {
             ItemCarro item = new ItemCarro(1, producto.get());
-            HttpSession session = req.getSession();
-            Carro carro = (Carro) session.getAttribute("carro");
+//            HttpSession session = req.getSession();
+//            Carro carro = (Carro) session.getAttribute("carro");
             carro.addItemCarro(item);
         }
         resp.sendRedirect(req.getContextPath()+"/carro/ver");

@@ -2,6 +2,7 @@ package org.jflores.apiservlet.webapp.session.controllers;
 
 import org.jflores.apiservlet.webapp.session.models.Carro;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,14 +16,18 @@ import java.util.List;
 
 @WebServlet("/carro/actualizar")
 public class ActualizarCarroServlet extends HttpServlet {
+
+    @Inject
+    private Carro carro;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        if (session.getAttribute("carro") != null) {
-            Carro carro = (Carro) session.getAttribute("carro");
-            updateProductos(req, carro);
-            updateCantidades(req, carro);
-        }
+//        HttpSession session = req.getSession();
+//        if (session.getAttribute("carro") != null) {
+//            Carro carro = (Carro) session.getAttribute("carro");
+        updateProductos(req, carro);
+        updateCantidades(req, carro);
+//        }
 
         resp.sendRedirect(req.getContextPath() + "/carro/ver");
     }
@@ -44,7 +49,7 @@ public class ActualizarCarroServlet extends HttpServlet {
 
         // Iteramos a traves de los parámetros y buscamos los que empiezan con
         // "cant_". El campo cant en la vista fueron nombrados "cant_" + productoId.
-        // Obtenemos el id de cada producto y su correspondiente cantidad ;-).
+        // Obtenemos el id de cada producto y su correspondiente cantidad
         while (enumer.hasMoreElements()) {
             String paramName = enumer.nextElement();
             if (paramName.startsWith("cant_")) {

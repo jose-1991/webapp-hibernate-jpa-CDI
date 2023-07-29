@@ -117,6 +117,5 @@ public class ProductoFormServlet extends HttpServlet {
             req.setAttribute("tittle",req.getAttribute("tittle") + ": Formulario de productos");
             getServletContext().getRequestDispatcher("/form.jsp").forward(req, resp);
         }
-
     }
 }

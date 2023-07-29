@@ -4,7 +4,7 @@
 
 <h3>${tittle}</h3>
 <c:choose>
-<c:when test="${sessionScope.carro == null || sessionScope.carro.items.isEmpty()}">
+<c:when test="${carro.items.isEmpty()}">
 <div class="alert alert-warning">Lo sentimos no hay productos en el carro de compras!</div>
 </c:when>
 <c:otherwise>
@@ -18,7 +18,7 @@
         <th>total</th>
         <th>borrar</th>
     </tr>
-    <c:forEach items="${sessionScope.carro.items}" var="item">
+    <c:forEach items="${carro.items}" var="item">
     <tr>
         <td>${item.producto.id}</td>
         <td>${item.producto.nombre}</td>
