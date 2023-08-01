@@ -1,11 +1,10 @@
-<%@page contentType= "text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="layout/header.jsp"/>
-
-<h3>${tittle}</h3>
+<jsp:include page="layout/header.jsp" />
+<h3>${title}</h3>
 <c:if test="${username.present}">
-<div class="alert alert-info">Hola <c:out value="${username.get()}"/>, Bienvenido!</div>
-<a class="btn btn-primary my-2" href="${pageContext.request.contextPath}/productos/form">crear [+]</a>
+   <div class="alert alert-info">Hola ${username.get()}, bienvenido!</div>
+   <a class="btn btn-primary my-2" href="${pageContext.request.contextPath}/productos/form">crear [+]</a>
 </c:if>
 <table class="table table-hover table-striped">
     <tr>
@@ -26,14 +25,14 @@
         <td>${p.categoria.nombre}</td>
         <c:if test="${username.present}">
         <td>${p.precio}</td>
-        <td><a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/carro/agregar?id=${p.id}">Agregar al carro</a></td>
-        <td><a class="btn btn-sm btn-success" href="${pageContext.request.contextPath}/productos/form?id=${p.id}">Editar</td>
-        <td><a class="btn btn-sm btn-danger" onClick="return confirm('Esta seguro que desea eliminar el producto ${p.nombre}?');"
-        href="${pageContext.request.contextPath}/productos/eliminar?id=${p.id}">Eliminar</td>
-       </c:if>
+        <td><a class="btn btn-sm btn-primary" href="${pageContext.request.contextPath}/carro/agregar?id=${p.id}">agregar al carro</a></td>
+        <td><a class="btn btn-sm btn-success" href="${pageContext.request.contextPath}/productos/form?id=${p.id}">editar</a></td>
+        <td><a class="btn btn-sm btn-danger" onclick="return confirm('esta seguro que desea eliminar?');"
+        href="${pageContext.request.contextPath}/productos/eliminar?id=${p.id}">eliminar</a></td>
+        </c:if>
     </tr>
     </c:forEach>
 </table>
 <p>${applicationScope.mensaje}</p>
 <p>${requestScope.mensaje}</p>
-<jsp:include page="layout/footer.jsp"/>
+<jsp:include page="layout/footer.jsp" />

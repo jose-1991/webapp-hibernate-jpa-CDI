@@ -1,10 +1,13 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
+import org.jflores.apiservlet.webapp.session.configs.ProductoServicePrincipal;
 import org.jflores.apiservlet.webapp.session.models.Categoria;
 import org.jflores.apiservlet.webapp.session.models.Producto;
 import org.jflores.apiservlet.webapp.session.services.ProductoService;
 import org.jflores.apiservlet.webapp.session.services.ProductoServiceJdbcImpl;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,10 +24,14 @@ import java.util.Optional;
 
 @WebServlet("/productos/form")
 public class ProductoFormServlet extends HttpServlet {
+
+    @Inject
+    @ProductoServicePrincipal
+    private ProductoService service;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection connection = (Connection) req.getAttribute("conn");
-        ProductoService service = new ProductoServiceJdbcImpl(connection);
+
         long id;
         try {
             id = Long.parseLong(req.getParameter("id"));
@@ -48,8 +55,7 @@ public class ProductoFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection connection = (Connection) req.getAttribute("conn");
-        ProductoService service = new ProductoServiceJdbcImpl(connection);
+
         String nombre = req.getParameter("nombre");
 
         int precio;

@@ -1,19 +1,24 @@
 package org.jflores.apiservlet.webapp.session.services;
 
+import org.jflores.apiservlet.webapp.session.configs.Service;
 import org.jflores.apiservlet.webapp.session.models.Usuario;
 import org.jflores.apiservlet.webapp.session.repositories.UsuarioRepository;
 import org.jflores.apiservlet.webapp.session.repositories.UsuarioRepositoryImpl;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService{
-    private UsuarioRepository usuarioRepository;
 
-    public UsuarioServiceImpl(Connection connection) {
-        this.usuarioRepository = new UsuarioRepositoryImpl(connection);
+    private UsuarioRepository usuarioRepository;
+    @Inject
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
     }
 
     @Override

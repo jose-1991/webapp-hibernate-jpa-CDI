@@ -1,24 +1,29 @@
 package org.jflores.apiservlet.webapp.session.repositories;
 
+import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
+import org.jflores.apiservlet.webapp.session.configs.Repository;
 import org.jflores.apiservlet.webapp.session.models.Usuario;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioRepositoryImpl implements UsuarioRepository{
-    Connection connection;
+@Repository
+public class UsuarioRepositoryImpl implements UsuarioRepository {
 
-    public UsuarioRepositoryImpl(Connection connection) {
-        this.connection = connection;
-    }
+    @Inject
+    @MysqlConn
+    Connection connection;
 
     @Override
     public List<Usuario> listar() throws SQLException {
         List<Usuario> usuarios = new ArrayList<>();
-        try(Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM usuarios")) {
-            while (resultSet.next()){
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM usuarios")) {
+            while (resultSet.next()) {
                 Usuario usuario = getUsuario(resultSet);
                 usuarios.add(usuario);
             }
@@ -39,11 +44,11 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
     @Override
     public Usuario porId(long id) throws SQLException {
         Usuario usuario = null;
-        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE id=?")){
-            statement.setLong(1,id);
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE id=?")) {
+            statement.setLong(1, id);
 
-            try(ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()){
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
                     usuario = getUsuario(resultSet);
                 }
             }
@@ -54,14 +59,14 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
     @Override
     public void guardar(Usuario usuario) throws SQLException {
         String sql;
-        if (usuario.getId() > 0){
+        if (usuario.getId() > 0) {
             sql = "UPDATE usuarios set username=?, password=?, email=?, tipo=? WHERE id=?";
-        }else {
+        } else {
             sql = "INSERT INTO usuarios (username, password, email, tipo)VALUES(?,?,?,?)";
         }
-        try (PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setString(1,usuario.getUsername());
-            statement.setString(2,usuario.getPassword());
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, usuario.getUsername());
+            statement.setString(2, usuario.getPassword());
             statement.setString(3, usuario.getEmail());
             statement.setString(4, usuario.getTipo());
             if (usuario.getId() > 0) {
@@ -75,8 +80,8 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
     public void eliminar(long id) throws SQLException {
         String sql = "DELETE FROM usuarios WHERE id=?";
 
-        try (PreparedStatement statement = connection.prepareStatement(sql)){
-            statement.setLong(1,id);
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setLong(1, id);
             statement.executeUpdate();
         }
     }
@@ -84,9 +89,9 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
     @Override
     public Usuario porUsername(String username) throws SQLException {
         Usuario usuario = null;
-        try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE username=?")) {
-            statement.setString(1,username);
-            try (ResultSet resultSet = statement.executeQuery()){
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE username=?")) {
+            statement.setString(1, username);
+            try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     usuario = new Usuario();
                     usuario.setId(resultSet.getLong("id"));

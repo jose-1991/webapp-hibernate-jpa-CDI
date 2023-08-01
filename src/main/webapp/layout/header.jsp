@@ -28,7 +28,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             ${not empty sessionScope.username? sessionScope.username: "Cuenta"}
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
                 <a class="dropdown-item"
                     href="${pageContext.request.contextPath}/${not empty sessionScope.username? "logout": "login"}">

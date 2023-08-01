@@ -6,6 +6,7 @@ import org.jflores.apiservlet.webapp.session.services.LoginServiceSessionImpl;
 import org.jflores.apiservlet.webapp.session.services.UsuarioService;
 import org.jflores.apiservlet.webapp.session.services.UsuarioServiceImpl;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -17,9 +18,14 @@ import java.util.Optional;
 @WebServlet({"/login", "/login.html"})
 public class LoginServlet extends HttpServlet {
 
+    @Inject
+    private UsuarioService service;
+
+    @Inject
+    private LoginService auth;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        LoginService auth = new LoginServiceSessionImpl();
         Optional<String> usernameOptional = auth.getUsername(req);
 
         if (usernameOptional.isPresent()) {
@@ -50,7 +56,6 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        UsuarioService service = new UsuarioServiceImpl((Connection) req.getAttribute("conn"));
         Optional<Usuario> usuarioOptional = service.login(username, password);
         if (usuarioOptional.isPresent()) {
 

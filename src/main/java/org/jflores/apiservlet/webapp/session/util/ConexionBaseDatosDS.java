@@ -13,7 +13,7 @@ public class ConexionBaseDatosDS {
     public static Connection getConnection() throws SQLException, NamingException {
         Context initContext = new InitialContext();
         Context envContext = (Context) initContext.lookup("java:/comp/env");
-        DataSource ds = (DataSource) envContext.lookup("jdbc/cursoDB");
+        DataSource ds = (DataSource) envContext.lookup("jdbc/mysqlDB");
         return ds.getConnection();
     }
 

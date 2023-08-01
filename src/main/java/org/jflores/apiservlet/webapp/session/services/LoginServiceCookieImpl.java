@@ -1,10 +1,12 @@
 package org.jflores.apiservlet.webapp.session.services;
 
+import javax.enterprise.inject.Alternative;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Optional;
 
+//@Alternative
 public class LoginServiceCookieImpl implements LoginService {
     @Override
     public Optional<String> getUsername(HttpServletRequest request) {

@@ -1,24 +1,24 @@
 package org.jflores.apiservlet.webapp.session.services;
 
+import org.jflores.apiservlet.webapp.session.configs.ProductoServicePrincipal;
+import org.jflores.apiservlet.webapp.session.configs.Service;
 import org.jflores.apiservlet.webapp.session.models.Categoria;
 import org.jflores.apiservlet.webapp.session.models.Producto;
-import org.jflores.apiservlet.webapp.session.repositories.CategoriaRepositoryImpl;
-import org.jflores.apiservlet.webapp.session.repositories.ProductoRepositoryJdbcImpl;
-import org.jflores.apiservlet.webapp.session.repositories.Repository;
+import org.jflores.apiservlet.webapp.session.repositories.CrudRepository;
 
-import java.sql.Connection;
+import javax.inject.Inject;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@ProductoServicePrincipal
 public class ProductoServiceJdbcImpl implements ProductoService{
-    private Repository<Producto> repositoryJdbc;
-    private Repository<Categoria>repositoryCategoriaJdbc;
+    @Inject
+    private CrudRepository<Producto> repositoryJdbc;
 
-    public ProductoServiceJdbcImpl(Connection connection) {
-        this.repositoryJdbc = new ProductoRepositoryJdbcImpl(connection);
-        this.repositoryCategoriaJdbc = new CategoriaRepositoryImpl(connection);
-    }
+    @Inject
+    private CrudRepository<Categoria> repositoryCategoriaJdbc;
 
     @Override
     public List<Producto> listar() {

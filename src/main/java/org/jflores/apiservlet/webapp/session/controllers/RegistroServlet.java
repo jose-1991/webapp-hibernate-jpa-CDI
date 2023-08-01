@@ -1,8 +1,11 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
+import org.jflores.apiservlet.webapp.session.configs.Service;
 import org.jflores.apiservlet.webapp.session.models.Usuario;
 import org.jflores.apiservlet.webapp.session.services.*;
 
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +20,10 @@ import java.util.Optional;
 @WebServlet("/registro/form")
 public class RegistroServlet extends HttpServlet {
 
+    @Inject
+    UsuarioService service;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection connection = (Connection) req.getAttribute("conn");
-        UsuarioService service = new UsuarioServiceImpl(connection);
         long id;
         try {
             id = Long.parseLong(req.getParameter("id"));
@@ -38,11 +41,9 @@ public class RegistroServlet extends HttpServlet {
         req.setAttribute("tittle", req.getAttribute("tittle")+": Registro");
         getServletContext().getRequestDispatcher("/registro.jsp").forward(req,resp);
     }
-
+@Produces
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection connection = (Connection) req.getAttribute("conn");
-        UsuarioService service = new UsuarioServiceImpl(connection);
         Map<String, String> erroresRegistro = new HashMap<>();
         long id;
         try {

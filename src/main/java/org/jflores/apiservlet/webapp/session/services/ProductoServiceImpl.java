@@ -3,10 +3,12 @@ package org.jflores.apiservlet.webapp.session.services;
 import org.jflores.apiservlet.webapp.session.models.Categoria;
 import org.jflores.apiservlet.webapp.session.models.Producto;
 
+import javax.enterprise.inject.Alternative;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+//@Alternative
 public class ProductoServiceImpl implements ProductoService {
 
     @Override

@@ -1,20 +1,36 @@
 package org.jflores.apiservlet.webapp.session.models;
 
+import org.jflores.apiservlet.webapp.session.configs.CarroCompra;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
-@SessionScoped
-@Named
+@CarroCompra
 public class Carro implements Serializable {
-    List<ItemCarro> items;
+    private List<ItemCarro> items;
 
-    public Carro() {
+    @Inject
+    private transient Logger log;
+
+    @PostConstruct
+    public void inicializar() {
         this.items = new ArrayList<>();
+        log.info("inicializando el carro de compras!");
     }
+
+    @PreDestroy
+    public void destruir(){
+        log.info("destruyendo el carro de compras!");
+    }
+
 
     public void addItemCarro(ItemCarro itemCarro) {
         if (items.contains(itemCarro)) {

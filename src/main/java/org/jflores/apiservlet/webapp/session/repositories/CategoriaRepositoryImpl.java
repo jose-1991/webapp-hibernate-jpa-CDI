@@ -1,15 +1,21 @@
 package org.jflores.apiservlet.webapp.session.repositories;
 
+import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
+import org.jflores.apiservlet.webapp.session.configs.Repository;
 import org.jflores.apiservlet.webapp.session.models.Categoria;
 
+import javax.inject.Inject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriaRepositoryImpl implements Repository<Categoria> {
-    Connection connection;
+@Repository
+public class CategoriaRepositoryImpl implements CrudRepository<Categoria> {
 
-    public CategoriaRepositoryImpl(Connection connection) {
+    private Connection connection;
+
+    @Inject
+    public CategoriaRepositoryImpl(@MysqlConn Connection connection) {
         this.connection = connection;
     }
 

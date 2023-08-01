@@ -3,6 +3,7 @@ package org.jflores.apiservlet.webapp.session.controllers;
 import org.jflores.apiservlet.webapp.session.models.Carro;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -1,18 +1,39 @@
 package org.jflores.apiservlet.webapp.session.repositories;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
+import org.jflores.apiservlet.webapp.session.configs.Repository;
 import org.jflores.apiservlet.webapp.session.models.Categoria;
 import org.jflores.apiservlet.webapp.session.models.Producto;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
-public class ProductoRepositoryJdbcImpl implements Repository<Producto>{
+@Repository
+public class ProductoRepositoryJdbcImpl implements CrudRepository<Producto> {
+
+    @Inject
+    private Logger log;
+
+    @Inject
+    @MysqlConn
     private Connection connection;
 
-    public ProductoRepositoryJdbcImpl(Connection connection) {
-        this.connection = connection;
+    @PostConstruct
+    public void inicializar(){
+        log.info("inicializando el beans " + this.getClass().getName());
     }
+
+    @PreDestroy
+    public void destruir(){
+        log.info("destruyendo el beans " + getClass().getName());
+    }
+
 
     @Override
     public List<Producto> listar() throws SQLException {
