@@ -1,5 +1,7 @@
 package org.jflores.apiservlet.webapp.session.models;
 
+import org.jflores.apiservlet.webapp.session.models.entities.Producto;
+
 import java.util.Objects;
 
 public class ItemCarro {

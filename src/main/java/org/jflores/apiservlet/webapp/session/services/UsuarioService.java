@@ -1,7 +1,6 @@
 package org.jflores.apiservlet.webapp.session.services;
 
-import org.jflores.apiservlet.webapp.session.models.Producto;
-import org.jflores.apiservlet.webapp.session.models.Usuario;
+import org.jflores.apiservlet.webapp.session.models.entities.Usuario;
 
 import java.util.List;
 import java.util.Optional;

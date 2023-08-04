@@ -1,8 +1,10 @@
 package org.jflores.apiservlet.webapp.session.services;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 import java.util.Optional;
 
 @ApplicationScoped

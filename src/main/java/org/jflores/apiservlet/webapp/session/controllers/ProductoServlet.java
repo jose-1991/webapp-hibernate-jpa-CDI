@@ -1,19 +1,16 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.jflores.apiservlet.webapp.session.configs.ProductoServicePrincipal;
-import org.jflores.apiservlet.webapp.session.models.Producto;
+import org.jflores.apiservlet.webapp.session.models.entities.Producto;
 import org.jflores.apiservlet.webapp.session.services.*;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 

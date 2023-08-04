@@ -4,39 +4,36 @@ import jakarta.inject.Inject;
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.Interceptor;
 import jakarta.interceptor.InvocationContext;
-import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
+import jakarta.persistence.EntityManager;
 import org.jflores.apiservlet.webapp.session.services.ServiceJdbcException;
 
 
-import java.sql.Connection;
 import java.util.logging.Logger;
 
-@TrasactionalJdbc
+@TransactionalJpa
 @Interceptor
-public class TransactionalInterceptor {
+public class TransactionalJpaInterceptor {
 
     @Inject
-    @MysqlConn
-    private Connection conn;
+    private EntityManager em;
 
     @Inject
     private Logger log;
 
     @AroundInvoke
     public Object transactional(InvocationContext invocation) throws Exception {
-        if (conn.getAutoCommit()) {
-            conn.setAutoCommit(false);
-        }
+
         try {
             log.info(" -------> iniciando transaccion " + invocation.getMethod().getName()+
                     "de la clase "+ invocation.getMethod().getDeclaringClass().getName());
+            em.getTransaction().begin();
             Object resultado = invocation.proceed();
-            conn.commit();
+            em.getTransaction().commit();
             log.info(" -------> finalizando transaccion " + invocation.getMethod().getName()+
                     "de la clase "+ invocation.getMethod().getDeclaringClass().getName());
             return resultado;
         } catch (ServiceJdbcException e) {
-            conn.rollback();
+            em.getTransaction().rollback();
             throw e;
         }
     }

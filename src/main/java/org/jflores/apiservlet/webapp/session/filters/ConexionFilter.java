@@ -1,17 +1,11 @@
 package org.jflores.apiservlet.webapp.session.filters;
 
-import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletResponse;
 import org.jflores.apiservlet.webapp.session.services.ServiceJdbcException;
 
-
-import javax.inject.Inject;
-import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 @WebFilter("/*")
 public class ConexionFilter implements Filter {

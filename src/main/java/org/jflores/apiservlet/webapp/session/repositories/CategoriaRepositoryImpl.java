@@ -1,15 +1,17 @@
 package org.jflores.apiservlet.webapp.session.repositories;
 
+import jakarta.inject.Inject;
 import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
 import org.jflores.apiservlet.webapp.session.configs.Repository;
-import org.jflores.apiservlet.webapp.session.models.Categoria;
+import org.jflores.apiservlet.webapp.session.models.entities.Categoria;
 
-import javax.inject.Inject;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@RepositoryJdbc
 public class CategoriaRepositoryImpl implements CrudRepository<Categoria> {
 
     private Connection connection;
@@ -33,7 +35,7 @@ public class CategoriaRepositoryImpl implements CrudRepository<Categoria> {
     }
 
     @Override
-    public Categoria porId(long id) throws SQLException {
+    public Categoria porId(Long id) throws SQLException {
         Categoria categoria = null;
         try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM categorias AS c WHERE c.id=?")){
             statement.setLong(1,id);
@@ -52,7 +54,7 @@ public class CategoriaRepositoryImpl implements CrudRepository<Categoria> {
     }
 
     @Override
-    public void eliminar(long id) throws SQLException {
+    public void eliminar(Long id) throws SQLException {
 
     }
     private static Categoria getCategoria(ResultSet resultSet) throws SQLException {

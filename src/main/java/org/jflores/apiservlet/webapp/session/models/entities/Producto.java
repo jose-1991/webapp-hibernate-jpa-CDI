@@ -1,20 +1,33 @@
-package org.jflores.apiservlet.webapp.session.models;
+package org.jflores.apiservlet.webapp.session.models.entities;
+
+import jakarta.persistence.*;
+import org.jflores.apiservlet.webapp.session.interceptors.TrasactionalJdbc;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "productos")
 public class Producto {
 
-    private long id;
-    private String nombre;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
+
+    @Column(name="fecha_registro")
+    private LocalDate fechaRegistro;
+
+    private String nombre;
     private int precio;
     private String sku;
-    private LocalDate fechaRegistro;
+
 
     public Producto() {
     }
 
-    public Producto(long id, String nombre, String tipo, int precio) {
+    public Producto(Long id, String nombre, String tipo, int precio) {
         this.id = id;
         this.nombre = nombre;
         Categoria categoria = new Categoria();
@@ -23,11 +36,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

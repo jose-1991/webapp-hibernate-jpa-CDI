@@ -1,7 +1,15 @@
-package org.jflores.apiservlet.webapp.session.models;
+package org.jflores.apiservlet.webapp.session.models.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String username;
     private String password;
     private String email;
@@ -11,11 +19,11 @@ public class Usuario {
         this.tipo = "CLIENTE";
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

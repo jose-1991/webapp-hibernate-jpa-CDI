@@ -1,20 +1,17 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
 import org.jflores.apiservlet.webapp.session.configs.ProductoServicePrincipal;
-import org.jflores.apiservlet.webapp.session.models.Categoria;
-import org.jflores.apiservlet.webapp.session.models.Producto;
+import org.jflores.apiservlet.webapp.session.models.entities.Categoria;
+import org.jflores.apiservlet.webapp.session.models.entities.Producto;
 import org.jflores.apiservlet.webapp.session.services.ProductoService;
-import org.jflores.apiservlet.webapp.session.services.ProductoServiceJdbcImpl;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -97,11 +94,11 @@ public class ProductoFormServlet extends HttpServlet {
         }catch (DateTimeParseException e){
             fecha = null;
         }
-        long id;
+        Long id;
         try {
-            id = Long.parseLong(req.getParameter("id"));
+            id = Long.valueOf(req.getParameter("id"));
         }catch (NumberFormatException e){
-            id = 0;
+            id = null;
         }
         Producto producto = new Producto();
         producto.setId(id);

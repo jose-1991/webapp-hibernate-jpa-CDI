@@ -4,14 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e03b0ff7-877b-4f4c-adbc-04bd382244af" name="Changes" comment="">
+    <list default="true" id="68df74dd-181e-40d6-8590-1f08d2361dee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceListImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/CarroCompra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/CarroCompra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/MysqlConn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/MysqlConn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/ProducerResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/ProducerResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/ProductoServicePrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/ProductoServicePrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/configs/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ActualizarCarroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ActualizarCarroServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/AgregarCarroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/AgregarCarroServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ProductoEliminarServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ProductoEliminarServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ProductoFormServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ProductoFormServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ProductoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/ProductoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/RegistroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/RegistroServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/VerCarroServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/controllers/VerCarroServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/filters/ConexionFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/filters/ConexionFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/filters/LoginFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/filters/LoginFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/Logging.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/Logging.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/LoggingInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/LoggingInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/TransactionalInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/TransactionalInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/TrasactionalJdbc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/interceptors/TrasactionalJdbc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/listeners/AplicacionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/listeners/AplicacionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Carro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Carro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/entities/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/ItemCarro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/ItemCarro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/entities/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/models/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/CategoriaRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/CategoriaRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/CrudRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/ProductoRepositoryJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/ProductoRepositoryJdbcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/UsuarioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/repositories/UsuarioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/LoginServiceCookieImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/LoginServiceCookieImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/LoginServiceSessionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/LoginServiceSessionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceJdbcImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/listar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/listar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/ProductoServiceJdbcImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/jflores/apiservlet/webapp/session/services/UsuarioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +60,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="HTML File" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -36,7 +74,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2SzoeI7lSyolFER46ibQ7EE2QDZ" />
+  <component name="ProjectId" id="2TTeJ7ORvlrFUeLL0RabI6ThUQM" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -44,20 +82,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/JoSe/Downloads/webapp-session&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/JoSe/Downloads/webapp-jpa"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="org.jflores.apiservlet.webapp.session.models" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.jflores.apiservlet.webapp.session.interceptors" />
+      <recent name="org.jflores.apiservlet.webapp.session.repositories" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="tomcat" type="MavenRunConfiguration" factoryName="Maven">
+    <configuration name="webapp-jpa [tomcat7:redeploy]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -86,11 +124,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e03b0ff7-877b-4f4c-adbc-04bd382244af" name="Changes" comment="" />
-      <created>1690158865355</created>
+      <changelist id="68df74dd-181e-40d6-8590-1f08d2361dee" name="Changes" comment="" />
+      <created>1691071429683</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1690158865355</updated>
+      <updated>1691071429683</updated>
     </task>
     <servers />
   </component>

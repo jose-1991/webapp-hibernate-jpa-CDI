@@ -1,18 +1,17 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
-import org.jflores.apiservlet.webapp.session.configs.Service;
-import org.jflores.apiservlet.webapp.session.models.Usuario;
+import jakarta.enterprise.inject.Produces;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.jflores.apiservlet.webapp.session.models.entities.Usuario;
 import org.jflores.apiservlet.webapp.session.services.*;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -41,7 +40,7 @@ public class RegistroServlet extends HttpServlet {
         req.setAttribute("tittle", req.getAttribute("tittle")+": Registro");
         getServletContext().getRequestDispatcher("/registro.jsp").forward(req,resp);
     }
-@Produces
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String, String> erroresRegistro = new HashMap<>();

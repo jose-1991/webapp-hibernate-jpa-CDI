@@ -2,16 +2,15 @@ package org.jflores.apiservlet.webapp.session.repositories;
 
 import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
 import org.jflores.apiservlet.webapp.session.configs.Repository;
-import org.jflores.apiservlet.webapp.session.models.Usuario;
+import org.jflores.apiservlet.webapp.session.models.entities.Usuario;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.inject.Inject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@RepositoryJdbc
 public class UsuarioRepositoryImpl implements UsuarioRepository {
 
     @Inject
@@ -42,7 +41,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     }
 
     @Override
-    public Usuario porId(long id) throws SQLException {
+    public Usuario porId(Long id) throws SQLException {
         Usuario usuario = null;
         try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuarios WHERE id=?")) {
             statement.setLong(1, id);
@@ -77,7 +76,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     }
 
     @Override
-    public void eliminar(long id) throws SQLException {
+    public void eliminar(Long id) throws SQLException {
         String sql = "DELETE FROM usuarios WHERE id=?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {

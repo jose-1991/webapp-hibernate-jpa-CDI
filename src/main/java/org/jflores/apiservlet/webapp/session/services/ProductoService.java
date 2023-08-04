@@ -1,7 +1,7 @@
 package org.jflores.apiservlet.webapp.session.services;
 
-import org.jflores.apiservlet.webapp.session.models.Categoria;
-import org.jflores.apiservlet.webapp.session.models.Producto;
+import org.jflores.apiservlet.webapp.session.models.entities.Categoria;
+import org.jflores.apiservlet.webapp.session.models.entities.Producto;
 
 import java.util.List;
 import java.util.Optional;

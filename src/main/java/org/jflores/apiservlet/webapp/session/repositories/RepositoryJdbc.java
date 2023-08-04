@@ -1,4 +1,4 @@
-package org.jflores.apiservlet.webapp.session.configs;
+package org.jflores.apiservlet.webapp.session.repositories;
 
 
 import jakarta.inject.Qualifier;
@@ -11,6 +11,7 @@ import static java.lang.annotation.ElementType.*;
 
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
-@Target({METHOD, FIELD, PARAMETER, TYPE, CONSTRUCTOR})
-public @interface ProductoServicePrincipal {
+@Target({CONSTRUCTOR, METHOD, FIELD, PARAMETER, TYPE})
+public @interface RepositoryJdbc {
+
 }

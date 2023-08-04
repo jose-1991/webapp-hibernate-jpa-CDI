@@ -1,8 +1,9 @@
 package org.jflores.apiservlet.webapp.session.configs;
 
-import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Stereotype;
-import javax.inject.Named;
+
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.enterprise.inject.Stereotype;
+import jakarta.inject.Named;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,23 +1,23 @@
 package org.jflores.apiservlet.webapp.session.services;
 
+import jakarta.inject.Inject;
 import org.jflores.apiservlet.webapp.session.configs.Service;
-import org.jflores.apiservlet.webapp.session.models.Usuario;
+import org.jflores.apiservlet.webapp.session.interceptors.TransactionalJpa;
+import org.jflores.apiservlet.webapp.session.models.entities.Usuario;
+import org.jflores.apiservlet.webapp.session.repositories.RepositoryJpa;
 import org.jflores.apiservlet.webapp.session.repositories.UsuarioRepository;
-import org.jflores.apiservlet.webapp.session.repositories.UsuarioRepositoryImpl;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import java.sql.Connection;
-import java.sql.SQLException;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@TransactionalJpa
 public class UsuarioServiceImpl implements UsuarioService{
 
     private UsuarioRepository usuarioRepository;
     @Inject
-    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+    public UsuarioServiceImpl(@RepositoryJpa UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     public List<Usuario> listar() {
         try {
             return usuarioRepository.listar();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJdbcException(e.getMessage(), e.getCause());
         }
     }
@@ -34,7 +34,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Optional<Usuario> porId(long id) {
         try {
             return Optional.ofNullable(usuarioRepository.porId(id));
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJdbcException(e.getMessage(), e.getCause());
         }
     }
@@ -43,7 +43,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     public void guardar(Usuario usuario) {
         try {
             usuarioRepository.guardar(usuario);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJdbcException(e.getMessage(), e.getCause());
         }
     }
@@ -52,7 +52,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     public void eliminar(long id) {
         try {
             usuarioRepository.eliminar(id);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJdbcException(e.getMessage(), e.getCause());
         }
     }
@@ -61,7 +61,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Optional<Usuario> login(String username, String password) {
         try {
             return Optional.ofNullable(usuarioRepository.porUsername(username)).filter(u -> u.getPassword().equals(password));
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJdbcException(e.getMessage(), e.getCause());
         }
     }

@@ -1,18 +1,19 @@
 package org.jflores.apiservlet.webapp.session.controllers;
 
-import org.jflores.apiservlet.webapp.session.models.Usuario;
+import jakarta.inject.Inject;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import org.jflores.apiservlet.webapp.session.models.entities.Usuario;
 import org.jflores.apiservlet.webapp.session.services.LoginService;
-import org.jflores.apiservlet.webapp.session.services.LoginServiceSessionImpl;
 import org.jflores.apiservlet.webapp.session.services.UsuarioService;
-import org.jflores.apiservlet.webapp.session.services.UsuarioServiceImpl;
 
-import javax.inject.Inject;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.util.Optional;
 
 @WebServlet({"/login", "/login.html"})

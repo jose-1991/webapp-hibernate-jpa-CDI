@@ -4,17 +4,17 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.jflores.apiservlet.webapp.session.configs.MysqlConn;
 import org.jflores.apiservlet.webapp.session.configs.Repository;
-import org.jflores.apiservlet.webapp.session.models.Categoria;
-import org.jflores.apiservlet.webapp.session.models.Producto;
+import org.jflores.apiservlet.webapp.session.models.entities.Categoria;
+import org.jflores.apiservlet.webapp.session.models.entities.Producto;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 @Repository
+@RepositoryJdbc
 public class ProductoRepositoryJdbcImpl implements CrudRepository<Producto> {
 
     @Inject
@@ -45,13 +45,12 @@ public class ProductoRepositoryJdbcImpl implements CrudRepository<Producto> {
                 Producto producto = getProducto(resultSet);
                 productos.add(producto);
             }
-
         }
         return productos;
     }
 
     @Override
-    public Producto porId(long id) throws SQLException {
+    public Producto porId(Long id) throws SQLException {
         Producto producto = null;
         try (PreparedStatement statement = connection.prepareStatement("SELECT p.*, c.nombre as categoria FROM " +
                 "productos AS p " +
@@ -91,7 +90,7 @@ public class ProductoRepositoryJdbcImpl implements CrudRepository<Producto> {
     }
 
     @Override
-    public void eliminar(long id) throws SQLException {
+    public void eliminar(Long id) throws SQLException {
         String sql = "DELETE FROM productos WHERE id=?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)){

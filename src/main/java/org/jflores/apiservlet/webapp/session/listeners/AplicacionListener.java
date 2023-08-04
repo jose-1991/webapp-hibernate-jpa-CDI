@@ -2,11 +2,11 @@ package org.jflores.apiservlet.webapp.session.listeners;
 
 import org.jflores.apiservlet.webapp.session.models.Carro;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSessionEvent;
+import jakarta.servlet.http.HttpSessionListener;
 
 @WebListener
 public class AplicacionListener implements ServletContextListener,
